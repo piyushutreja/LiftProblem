@@ -30,7 +30,7 @@ public class Main {
 				while(true)
 				{    System.out.println("Enter your current floor from 0 to 10 ");
 					int calledFloor = scan.nextInt();
-					if(calledFloor>0 && calledFloor<11)
+					if(calledFloor>=0 && calledFloor<11)
 					{		
 						System.out.println("Calling the nearest lift");
 						services.getLift(passengerLift,serviceLift,calledFloor);
