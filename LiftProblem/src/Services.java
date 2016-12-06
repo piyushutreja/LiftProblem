@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class Services {
 
 	public void getCurrentLoc(Lift passengerLift, Lift serviceLift) {
@@ -7,10 +9,18 @@ public class Services {
 		System.out.println("Service Lift is on floor"
 				+ serviceLift.getCurrentfloor().value);
 	}
+	
 
-	public void getLift(Lift passengerLift, Lift serviceLift, int calledFloor) {
+
+	public void getLift(Lift passengerLift, Lift serviceLift, int calledFloor, boolean inProcess) {
 		// TODO Auto-generated method stub
-
+		 inProcess=true;
+		try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		int distFromPass = 0, distFromService = 0;
 
 		distFromPass = passengerLift.getCurrentfloor().value - calledFloor;
@@ -70,6 +80,7 @@ public class Services {
 		}
 		System.out.println("getLift called");
 		System.out.println(distFromPass);
+		 inProcess=false;
 	}
 
 }
